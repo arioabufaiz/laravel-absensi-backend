@@ -21,5 +21,22 @@ class DatabaseSeeder extends Seeder
             'email' => 'ario@example.com',
             'password' => Hash::make('12345678'),
         ]);
+
+         // data dummy for company
+         \App\Models\Company::create([
+            'name' => 'PT. RIO-FIC16',
+            'email' => 'fic16@ariocode.com',
+            'address' => 'Jl. solo No. 20, Solo, Jawa Tengah',
+            'latitude' => '-7.747033',
+            'longitude' => '110.355398',
+            'radius_km' => '0.5',
+            'time_in' => '08:00',
+            'time_out' => '17:00',
+        ]);
+
+        $this->call([
+            AttendanceSeeder::class,
+            PermissionSeeder::class,
+        ]);
     }
 }
